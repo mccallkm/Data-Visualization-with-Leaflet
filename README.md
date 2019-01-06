@@ -9,5 +9,6 @@ The below charts depict areas where earthquakes were recorded in the USA in the 
 
 
 The USGS tracks these daily and more information can be found at the source link below.
+
 Source: https://earthquake.usgs.gov/earthquakes/
 
