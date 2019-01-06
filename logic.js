@@ -12,7 +12,8 @@ function styleInformation(feature) {
     return {
         opacity: 1,
         fillOpacity: 1,
-        fillColor: "#98ee00",
+        fillColor: "#00EE98",
+        /*getColor(feature.properties.mag), */
         color: "#000000",
         radius: 8,
         stroke: true,
@@ -25,7 +26,7 @@ function createFeatures(earthquakeData) {
     // Define a function we want to run once for each feature in the features array
     // Give each feature a popup describing the place and time of the earthquake
     function onEachFeature(feature, layer) {
-        layer.bindPopup("<h3>" + feature.properties.place +
+        layer.bindPopup("<h3>" + feature.properties.mag + feature.properties.place +
             "</h3><hr><p>" + new Date(feature.properties.time) + "</p>");
     }
 
@@ -87,4 +88,15 @@ function createMap(earthquakes) {
     L.control.layers(baseMaps, overlayMaps, {
         collapsed: false
     }).addTo(myMap);
-}
+
+    // Create legend
+
+    var legend = L.control({ position: 'bottomright' });
+    legend.onAdd = function(myMap) {
+        var div = L.DomUtil.create('div', 'info legend'),
+
+            grades = [0, 1, 2, 3, 4, 5],
+            labels = [];
+    };
+    legend.addTo(myMap);
+};
